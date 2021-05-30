@@ -1,5 +1,5 @@
-#ifndef MESH_HPP
-#define MESH_HPP
+#ifndef MATELEM_HPP
+#define MATELEM_HPP
 
 #include "mstC_types.h"
 #include <string>
@@ -7,11 +7,14 @@
 
 
 class MateElem{
-    
-    
 public:
     MateElem(){}
+    MateElem(std::string mtype, std::string elemtype):mattype(mtype){
+
+    }
     ~MateElem() =default;
-    
-}
+
+private:
+    std::string mattype;
+};
 #endif

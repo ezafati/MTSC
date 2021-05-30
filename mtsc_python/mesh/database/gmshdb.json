@@ -1,37 +1,22 @@
 {
     "1": {
-        "Comp": [
-            "x",
-            "y"
-        ],
-        "NuNodes": 2
+        "NuNodes": 2,
+        "ElemType": "Bar2"
     },
     "15": {
         "NuNodes": 1,
-        "comp": [
-            "x",
-            "y"
-        ]
+        "ElemType": "Poi1"
     },
     "2": {
         "NuNodes": 3,
-        "comp": [
-            "x",
-            "y"
-        ]
+        "ElemType": "Tri3"
     },
     "3": {
         "NuNodes": 4,
-        "comp": [
-            "x",
-            "y"
-        ]
+        "ElemType": "Qua4"
     },
     "9": {
         "NuNodes": 6,
-        "comp": [
-            "x",
-            "y"
-        ]
+        "ElemType": "Tri6"
     }
 }

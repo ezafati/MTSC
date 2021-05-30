@@ -26,7 +26,8 @@ public:
     typedef std::pair<int, std::pair<int, std::vector<int>>>  MapGroupObj;
     typedef std::pair<int, std::pair<int, std::vector<MTSC_INT>>>  MapGrouptoNodesObj;
     typedef std::pair<int, std::pair<int, std::vector<MTSC_INT>>>  MapGrouptoElemsObj;
-    
+    typedef std::pair<int, std::pair<int, std::string>> MapGroupElemType;
+
 
     
     
@@ -41,6 +42,7 @@ public:
     /* Get the number of the node in the element giving
      * the gmsh number  (infos stored in base.json file)*/
     int  GetNuno(int gmshnu);
+    std::string GetTypeElem(int gmshnu);
     
     /* Get total number of nodes*/
     MTSC_INT GetNumberOfNodes() const{
@@ -94,6 +96,14 @@ private:
      * gn:  GMSH Node Tag
      * NuNoGlobToLocal[gn] Local node tag in the cuurent process*/
     std::vector<MTSC_INT> NuNoGlobToLocal;
+
+    /*Container to store:
+    * key [int]: element dimension
+      value [pair<int, std::vector<int>]: (Entity_tag, Elem_Type)
+      PS: Elem_Type is extracted from gsmhdb.json as the value of the key "ElemType" 
+      */
+    std::multimap<int, std::pair<int, std::string>> MapGroupToElemType;
+
     
         
 };

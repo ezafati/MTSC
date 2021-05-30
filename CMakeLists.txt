@@ -18,6 +18,7 @@ set( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} -Wall -O3 -fPIC" )
 add_definitions(-DUSE_MPI)
 
 add_subdirectory(mesh)
+add_subdirectory(matelem)
 
 
 #libraries list 
@@ -30,7 +31,7 @@ add_library(mtsc SHARED ${LIB1_SOURCES})
 target_include_directories(mtsc
     PRIVATE include  ${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS} ${MPI_CXX_INCLUDE_PATH})
 
-target_link_libraries(mtsc mesh  ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${MPI_CXX_LIBRARIES})
+target_link_libraries(mtsc mesh matelem  ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${MPI_CXX_LIBRARIES})
 SET_TARGET_PROPERTIES(mtsc PROPERTIES PREFIX "")
 
 
@@ -40,4 +41,4 @@ add_executable(mtsc_exec ${LIB1_SOURCES})
 target_include_directories(mtsc_exec
      PRIVATE include ${Boost_INCLUDE_DIRS} ${PYTHON_INCLUDE_DIRS} ${MPI_CXX_INCLUDE_PATH})
 
-target_link_libraries(mtsc_exec mesh ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${MPI_CXX_LIBRARIES})
+target_link_libraries(mtsc_exec mesh matelem ${Boost_LIBRARIES} ${PYTHON_LIBRARIES} ${MPI_CXX_LIBRARIES})

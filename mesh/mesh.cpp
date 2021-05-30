@@ -334,7 +334,13 @@ bool MeshGlobal::GetElements(char* beg, int sizef, std::string&& filename){
         std::getline(file, line);
         sstre.str(line);
         while(sstre >> val) vct.push_back(val);
+        /* Get number of nodes */
         int nuno = GetNuno((int)vct[2]);
+        /* Get element type related to the entity */
+        std::string typel = GetTypeElem((int)vct[2]);
+        MapGroupToElemType.insert(MapGroupElemType(vct[0], std::pair<int,std::string>(nuno, typel)));
+        //std::cout << "type element " << vct[2] << "  " << typel << std::endl;
+        /* allocate */
         tmpp.second.reserve(1+(nuno+1)*vct[3]);
         tmpp.first = vct[1];
         std::cout << nuno << "   " << vct[1] << "   " << vct[3] << std::endl;
@@ -380,4 +386,27 @@ int MeshGlobal::GetNuno(int x){
     //Py_Finalize();
     
     return nuno;
+}
+
+std::string MeshGlobal::GetTypeElem(int x){
+    
+    Py_Initialize();
+    
+    PyObject* mstc_pack = PyImport_ImportModule((const char*)"mtsc_python");
+    PyObject* func = PyObject_GetAttrString(mstc_pack,(const char*)"readeleminfos");
+
+    
+    
+     /* Result is expected to be a dictionary*/
+    PyObject* res = PyObject_CallObject(func, Py_BuildValue("(i)", x));
+    
+    const char* typel = PyUnicode_AsUTF8(PyDict_GetItemString(res, "ElemType"));
+    /*make some clear */
+    Py_DECREF(mstc_pack);
+    Py_DECREF(func);
+    Py_DECREF(res);
+    /*END*/
+    //Py_Finalize();
+    
+    return std::string(typel);
 }

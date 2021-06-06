@@ -1,4 +1,4 @@
-set(util_source_files mesh.cpp)
+set(util_source_files mesh.cpp tri_vf.cpp)
 add_library(mesh ${util_source_files})
 
 

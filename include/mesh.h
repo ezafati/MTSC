@@ -43,19 +43,24 @@ public:
      * the gmsh number  (infos stored in base.json file)*/
     int  GetNuno(int gmshnu);
     std::string GetTypeElem(int gmshnu);
-    
+
+     /* Some useful getter methods*/
     /* Get total number of nodes*/
     MTSC_INT GetNumberOfNodes() const{
         if(!nunodes && FileAbsPath.empty()) {
         try{
-            throw std::string("Fatal error: First read mesh file");
+            throw std::string("Fatal error: read mesh file first");
         }catch(...){}
         }
         return nunodes;
     }
     
-   std::vector<MTSC_FLOAT> GetNodesCoord() const{
+   const std::vector<MTSC_FLOAT> GetNodesCoord() const{
         return CoorNodes;
+    }
+
+    const std::multimap<int, std::pair<int, std::vector<MTSC_INT>>>& GetEntitiesElements() const{
+        return EntitiesElements;
     }
 
 private:

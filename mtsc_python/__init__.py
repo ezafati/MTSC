@@ -1,3 +1,3 @@
 from .mesh import *
-from .cataelem import *
+from .model import *
 from .material import *

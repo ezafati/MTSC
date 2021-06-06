@@ -1,0 +1,26 @@
+{
+    "DPLAN": [
+        {
+            "ElemType": "Tri3",
+            "MatElem": {
+                "mass": "FPG1",
+                "rigi": "FPG1"
+            }
+        },
+        {
+            "ElemType": "Tri6",
+            "MatElem": {
+                "mass": "FPG2",
+                "rigi": "FPG2"
+            }
+        },
+        {
+            "ElemType": "Poi1",
+            "MatElem": {}
+        },
+        {
+            "ElemType": "Bar2",
+            "MatElem": {}
+        }
+    ]
+}

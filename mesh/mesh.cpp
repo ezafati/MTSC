@@ -254,7 +254,7 @@ bool MeshGlobal::GetEntities(char* beg, int sizef, std::string&& filename){
         if(vcttmp[7]){
             auto [begin, end] = PhysicalNames.equal_range(1);
             for(int j=0; j < vcttmp[7]; j++){
-                auto iter = std::find_if(begin, end, [vcttmp,j](MapGroupNamesObj m){return (m.second).first==vcttmp[7+j+1];});
+                auto iter = std::find_if(begin, end, [&vcttmp,j](MapGroupNamesObj m){return (m.second).first==vcttmp[7+j+1];});
                 if(iter!=end){
                     (iter->second).first = vcttmp[0];
                 }else{
@@ -283,7 +283,7 @@ bool MeshGlobal::GetEntities(char* beg, int sizef, std::string&& filename){
         if(vcttmp[7]){
             auto [begin, end] = PhysicalNames.equal_range(2);
             for(int j=0; j < vcttmp[7]; j++){
-                auto iter = std::find_if(begin, end, [vcttmp,j](MapGroupNamesObj m){return (m.second).first==vcttmp[7+j+1];});
+                auto iter = std::find_if(begin, end, [&vcttmp,j](MapGroupNamesObj m){return (m.second).first==vcttmp[7+j+1];});
                 if(iter!=end){
                     (iter->second).first = vcttmp[0];
                 }else{
@@ -343,7 +343,7 @@ bool MeshGlobal::GetElements(char* beg, int sizef, std::string&& filename){
         /* allocate */
         tmpp.second.reserve(1+(nuno+1)*vct[3]);
         tmpp.first = vct[1];
-        std::cout << nuno << "   " << vct[1] << "   " << vct[3] << std::endl;
+        //std::cout << nuno << "   " << vct[1] << "   " << vct[3] << std::endl;
         auto it = tmpp.second.begin();
         tmpp.second.insert(it, (MTSC_INT)nuno);
         for(MTSC_INT i=0;i<vct[3];i++){

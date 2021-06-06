@@ -9,12 +9,12 @@
 class MateElem{
 public:
     MateElem(){}
-    MateElem(std::string mtype, std::string elemtype):mattype(mtype){
+    MateElem(std::string mtype, std::string elemtype):typemat(mtype){
 
     }
     ~MateElem() =default;
 
 private:
-    std::string mattype;
+    std::string typemat;
 };
 #endif

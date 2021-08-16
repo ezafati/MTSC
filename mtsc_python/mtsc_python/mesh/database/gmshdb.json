@@ -1,0 +1,22 @@
+{
+    "1": {
+        "NuNodes": 2,
+        "ElemType": "Bar2"
+    },
+    "15": {
+        "NuNodes": 1,
+        "ElemType": "Poi1"
+    },
+    "2": {
+        "NuNodes": 3,
+        "ElemType": "Tri3"
+    },
+    "3": {
+        "NuNodes": 4,
+        "ElemType": "Qua4"
+    },
+    "9": {
+        "NuNodes": 6,
+        "ElemType": "Tri6"
+    }
+}

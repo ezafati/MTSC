@@ -7,6 +7,7 @@
 #include  <map>
 #include <vector>
 #include <iostream>
+#include <memory>
 
 
 
@@ -146,4 +147,7 @@ public:
 private:
     std::multimap<int, std::pair<int, std::vector<MTSC_INT>>> LocalConn;
 };
+
+//typedef std::shared_ptr<MeshGlobal> MeshGlobalPtr;
+//typedef std::shared_ptr<MeshLocal> MeshLocalPtr;
 #endif
